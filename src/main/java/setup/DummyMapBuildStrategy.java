@@ -24,7 +24,7 @@ public class DummyMapBuildStrategy implements MapBuildStrategy {
         TalkerNPC mum = new TalkerNPC("mum", "She's your mum. Seems like she has something to tell you.");
         kitchen.getNpcs().add(mum);
         mum.getMatchers().add("my mum");
-        mum.setDialogue(() -> {
+        mum.setDialogue((String) -> {
             System.out.println("MUM: Hey, I was looking for you! Where are you going?");
             String[] choices = {"I'm staying at home", "I'll go in the forest"};
             for(int i = 0; i < choices.length; i++) {

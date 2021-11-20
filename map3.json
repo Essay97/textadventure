@@ -17,7 +17,7 @@
           "description": "These strange blue stones... I don't know what they mean but they're kind of warm."
         }
       ],
-      "NPCs": [
+      "npcs": [
         {
           "name": "wizard",
           "description": "This is clearly a wizard... maybe he can help you.",

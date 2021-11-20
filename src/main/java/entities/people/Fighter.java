@@ -6,12 +6,12 @@ import utils.Output;
 public interface Fighter extends Matchable {
     public default void attack(Fighter enemy) {
         int delay = 1200;
-        Output.delayed(delay, getName() + " attacks!");
+        Output.postDelayed(delay, getName() + " attacks!");
         if(!enemy.isDefending()) {
             int newHP = enemy.getHP() - getAttack();
             enemy.setHP(newHP);
             int printHP = enemy.getHP() < 0 ? 0 : enemy.getHP();
-            Output.delayed(delay, enemy.getName() + " has " + printHP + "HP left.");
+            Output.postDelayed(delay, enemy.getName() + " has " + printHP + "HP left.");
         } else {
             System.out.println(enemy.getName() + " defends!");
             enemy.setDefending(false);

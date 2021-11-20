@@ -36,7 +36,7 @@ public class Output {
         System.out.println();
     }
 
-    public static void delayed(int ms, String msg) {
+    public static void postDelayed(int ms, String msg) {
         try {
             System.out.println(msg);
             TimeUnit.MILLISECONDS.sleep(ms);

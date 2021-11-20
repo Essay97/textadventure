@@ -18,7 +18,7 @@ public class FighterTalkerNPC extends NPC implements Fighter, Talker {
 
     @Override
     public void talk() {
-        dialogue.doDialogue();
+        dialogue.doDialogue(getName());
     }
 
     @Override

@@ -20,6 +20,9 @@ public abstract class Character implements Examinable, Serializable {
         matchers.add(name);
     }
 
+    protected Character() {
+    }
+
     @Override
     public String examine() {
         return description;

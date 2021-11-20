@@ -20,8 +20,8 @@ public class Room implements Examinable, Serializable {
     @JsonIgnore
     private Set<String> matchers = new HashSet<>();
     private Set<Item> items = new HashSet<>();
-    @JsonIgnore
-    private List<NPC> npcs = new ArrayList<>();
+
+    private ArrayList<NPC> npcs = new ArrayList<>();
 
     // For Jackson
     private Room() {}
