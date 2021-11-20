@@ -1,15 +1,21 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import commands.Command;
 import commands.CommandFactory;
 import commands.Invoker;
 import entities.GameMap;
 import entities.GameState;
+import entities.Item;
+import entities.Room;
 import entities.people.Player;
 import setup.DummyMapBuildStrategy;
 import setup.GameMapBuilder;
+import setup.JsonMapBuildStrategy;
 import utils.Input;
 import utils.Output;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Arrays;
 
@@ -36,8 +42,8 @@ public class MainClass {
             // Setup new game
             state = new GameState();
             // GameMapBuilder builder = new GameMapBuilder(new FileMapBuildStrategy("map1.txt"));
-            GameMapBuilder builder = new GameMapBuilder(new DummyMapBuildStrategy());
-            // GameMapBuilder builder = new GameMapBuilder(new YamlMapBuildStrategy("map2.yml"));
+            // GameMapBuilder builder = new GameMapBuilder(new DummyMapBuildStrategy());
+            GameMapBuilder builder = new GameMapBuilder(new JsonMapBuildStrategy("map3.json"));
             GameMap map = builder.build();
 
             player = new Player("Enrico", "This is me");

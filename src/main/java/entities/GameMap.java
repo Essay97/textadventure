@@ -4,8 +4,11 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import setup.GameMapDeserializer;
 import utils.Directions;
 
+@JsonDeserialize(using = GameMapDeserializer.class)
 public class GameMap implements Serializable {
     private static final long serialVersionUID = 7661736730763800493L;
 
