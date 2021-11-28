@@ -20,10 +20,10 @@ public class NPCDeserializer extends JsonDeserializer<NPC> {
 
         JsonNode root = jsonParser.getCodec().readTree(jsonParser);
         boolean isTalker = root.get("dialogue") != null;
-        boolean isFighter = root.get("fight") != null;
+        boolean isFighter = root.get("hp") != null && root.get("maxAttack") != null;
         NPC npc = null;
         if (isFighter && isTalker) {
-            npc = om.treeToValue(root, TalkerNPC.class);
+            npc = om.treeToValue(root, FighterTalkerNPC.class);
         } else if (isFighter) {
             npc = om.treeToValue(root, FighterNPC.class);
         } else if (isTalker) {

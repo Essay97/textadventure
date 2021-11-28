@@ -1,23 +1,22 @@
 package setup;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import entities.GameMap;
 
 import java.io.File;
 import java.io.IOException;
 
-public class JsonMapBuildStrategy implements MapBuildStrategy {
-
+public class YamlMapBuildStrategy implements MapBuildStrategy {
     private String filename;
 
-    public JsonMapBuildStrategy(String filename) {
+    public YamlMapBuildStrategy(String filename) {
         this.filename = filename;
     }
 
     @Override
     public GameMap build() {
-        ObjectMapper om = new ObjectMapper();
+        ObjectMapper om = new ObjectMapper(new YAMLFactory());
         GameMap map = null;
         try {
             System.out.println(filename);

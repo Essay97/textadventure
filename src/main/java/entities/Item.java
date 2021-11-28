@@ -8,6 +8,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import setup.ItemDeserializer;
 import utils.MatchableUtil;
 
+/**
+ * This class represents a generic item. Anything that the player can interact with is an <code>Item</code> (except
+ * from the characters that are represented by the {@link Character} class. This class implements {@link Examinable},
+ * menaing that you can use this class to represent everything that needs to be examined by the player
+ */
 @JsonDeserialize(using = ItemDeserializer.class)
 public class Item implements Examinable, Serializable {
     private static final long serialVersionUID = -4921108410630112665L;

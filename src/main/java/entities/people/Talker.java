@@ -2,7 +2,28 @@ package entities.people;
 
 import entities.Matchable;
 
+/**
+ * The interface gives the ability to use te <code>talk</code> command.
+ * Instances of a class that implements this interface can be passed as an argument to {@link commands.TalkCommand}.
+ * It also adds the ability to be targeted as a command argument (not only for the <code>talk</code> command but also
+ * for all the other ones such as <code>examine</code>)
+ *
+ * @see TalkerNPC
+ * @see FighterTalkerNPC
+ * @see Dialogue
+ * @see DialogueTemplate
+ * @see DialogueChunk
+ * @see commands.TalkCommand
+ */
 public interface Talker extends Matchable {
-    public void talk();
-    public void setDialogue(Dialogue dialogue);
+    /**
+     * Starts the {@link Dialogue} sequence
+     */
+    void talk();
+
+    /**
+     * Updates the dialogue sequence
+     * @param dialogue the new dialogue sequence
+     */
+    void setDialogue(Dialogue dialogue);
 }

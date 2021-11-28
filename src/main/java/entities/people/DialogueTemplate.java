@@ -6,14 +6,29 @@ import utils.Output;
 
 import java.util.List;
 
+/**
+ * This class provides basic implementation of the {@link Dialogue} interface.
+ * <p>It just lets you iterate over a list of {@link DialogueChunk} and print each chunk, waiting for a response.</p>
+ *
+ * @see Dialogue
+ * @see DialogueChunk
+ */
 @JsonDeserialize(as = DialogueTemplate.class)
 public class DialogueTemplate implements Dialogue {
+    /**
+     * The list of all the parts of the dialogue
+     */
     List<DialogueChunk> chunks;
 
     public DialogueTemplate(List<DialogueChunk> chunks) {
         this.chunks = chunks;
     }
 
+    /**
+     * The method simpy iterates over the {@link #chunks} and prints all the messages. For every message, it waits for a
+     * valid response and keeps asking until the player submits a valid response.
+     * @param talkerName the name of the character who is talking, used to print the talker name at the beginning of the line
+     */
     @Override
     public void doDialogue(String talkerName) {
         for (DialogueChunk chunk : chunks) {

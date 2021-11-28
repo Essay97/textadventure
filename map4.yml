@@ -1,0 +1,96 @@
+rooms:
+  - name: Mountain footpath
+    description: >
+      You are on a path that hopefully leads to the Iron Mountain peak.
+
+      The terrain has a strange shade of yellow and it's covered of blue
+      stones.
+
+      To the north, you see a big black forest.
+
+      To the south, your warm house.
+
+      To the east, there is the road for the port.
+    items:
+      - name: terrain
+        matchers:
+          - yellow terrain
+        grab: false
+        description: >-
+          The terrain has a strange yellow shade... this place must have known
+          magic.
+      - name: blue stones
+        matchers:
+          - stones
+          - stone
+          - blue stone
+        grab: true
+        description: >-
+          These strange blue stones... I don't know what they mean but they're
+          kind of warm.
+    npcs:
+      - name: wizard
+        description: This is clearly a wizard... maybe he can help you.
+        dialogue:
+          - message: Don't go to the port road... strange things happen there.
+            responses:
+              - Ok then...
+              - Thanks, old man
+        hp: 20
+        maxAttack: 5
+    connections:
+      N: Black forest
+      S: Your house
+      E: Port road
+      W: null
+  - name: Black forest
+    description: >-
+      You suddenly feel that the temperature is dropping quickly.
+
+      You entered a big forest: everything is dark and cold, you can barely see
+      your feet.
+
+      All around you, there are only trees and it seems like there is a small
+      clearing to the west.
+    items:
+      - name: trees
+        matchers:
+          - tree
+          - big tree
+          - big trees
+        grab: false
+        description: These trees have something that freezes me up...
+    connections:
+      N: null
+      S: Mountain footpath
+      E: null
+      W: null
+  - name: Your house
+    description: >
+      Oh, this is your happy place. You live here with your wife and your 3
+      children, but you remember all this.
+
+      The house faces the north road: it leads to a mountain footpath.
+    connections:
+      N: Mountain footpath
+      S: null
+      E: null
+      W: null
+  - name: Port road
+    description: >
+      You are walking down the main road that leads to the port. You have always
+      been a little frightened by this road, you never really loved the sea.
+
+      But this time, you see something that catches your attention: a knife in
+      the middle of the road.
+    items:
+      - name: knife
+        matchers:
+          - blade
+        grab: true
+        description: This is a sharp knife... it's still covered with blood.
+    connections:
+      N: null
+      S: null
+      E: null
+      W: Mountain footpath

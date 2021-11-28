@@ -1,19 +1,54 @@
 package entities;
 
+/**
+ * This interface allows to navigate the map. The implementer of this interface gains the ability to move around between
+ * the rooms of a given {@link GameMap}
+ *
+ * @see entities.people.Player
+ * @see GameMap
+ */
 public interface Movable {
-    public void moveN();
+    /**
+     * Moves the implementer to the North
+     */
+    void moveN();
 
-    public void moveS();
+    /**
+     * Moves the implementer to the South
+     */
+    void moveS();
 
-    public void moveW();
+    /**
+     * Moves the implementer to the West
+     */
+    void moveW();
 
-    public void moveE();
+    /**
+     * Moves the implementer to the East
+     */
+    void moveE();
 
-    public boolean canMoveN();
+    /**
+     * Checks if the implementer can move to the North
+     * @return <code>true</code> if there is an open "door" towards the North in the current room
+     */
+    boolean canMoveN();
 
-    public boolean canMoveS();
+    /**
+     * Checks if the implementer can move to the South
+     * @return <code>true</code> if there is an open "door" towards the South in the current room
+     */
+    boolean canMoveS();
 
-    public boolean canMoveW();
+    /**
+     * Checks if the implementer can move to the West
+     * @return <code>true</code> if there is an open "door" towards the West in the current room
+     */
+    boolean canMoveW();
 
-    public boolean canMoveE();
+    /**
+     * Checks if the implementer can move to the East
+     * @return <code>true</code> if there is an open "door" towards the East in the current room
+     */
+    boolean canMoveE();
 }

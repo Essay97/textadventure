@@ -9,14 +9,41 @@ import entities.Movable;
 import entities.Room;
 import utils.FighterUtil;
 
+/**
+ * This is the only entity that can be controlled by the player. This is actually the main actor of the whole thing.
+ * The player controls an instance of this class and submits commands mostly to it.
+ * <p><code>Player</code> has the ability to move from a room to another and to fight enemies.</p>
+ *
+ * @see Character
+ * @see Movable
+ * @see Fighter
+ */
 public class Player extends Character implements Movable, Fighter {
     private static final long serialVersionUID = 4369428510876917776L;
 
+    /**
+     * The room where the player actually is
+     */
     private Room currentRoom;
+    /**
+     * The map of the other reachable rooms
+     */
     private GameMap map;
+    /**
+     * The items that the player has collected along the game
+     */
     private List<GrabbableItem> inventory = new ArrayList<>();
+    /**
+     * The amount of damage that must be taken by the NPC in order to die
+     */
     private int hp;
+    /**
+     * The max damage that can be delivered with a single attack
+     */
     private int maxAttack;
+    /**
+     * When true, the character cannot suffer damage
+     */
     private boolean isDefending;
 
     public Player(String name, String description) {
@@ -27,18 +54,16 @@ public class Player extends Character implements Movable, Fighter {
         hp = 1;
     }
 
+    /**
+     * @return the room where the player is
+     */
     public Room getCurrentRoom() {
         return this.currentRoom;
     }
 
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
-    }
-
-    public GameMap getMap() {
-        return this.map;
-    }
-
+    /**
+     * @param map the object that stores the connections between rooms and maps where the player can go
+     */
     public void setMap(GameMap map) {
         this.map = map;
         this.currentRoom = map.getEntry();
@@ -89,15 +114,26 @@ public class Player extends Character implements Movable, Fighter {
         return "Player " + getName() + " [currentRoom=" + currentRoom + "]";
     }
 
+    /**
+     * @return the list of all the items collected
+     */
     public List<GrabbableItem> getInventory() {
         return inventory;
     }
 
+    /**
+     * Adds an item to the inventory
+     * @param item the item to be added to {@link #inventory}
+     */
     public void addInventoryItem(GrabbableItem item) {
         inventory.add(item);
         currentRoom.getItems().remove(item);
     }
 
+    /**
+     * Removes an item from the inventory. This is the opposite of {@link #addInventoryItem(GrabbableItem)}
+     * @param item the item to be deleted from {@link #inventory}
+     */
     public void removeInventoryItem(GrabbableItem item) {
         inventory.remove(item);
     }

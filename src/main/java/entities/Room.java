@@ -15,12 +15,27 @@ import utils.MatchableUtil;
 public class Room implements Examinable, Serializable {
     private static final long serialVersionUID = -8007406889019398847L;
 
+    /**
+     * The name that identifies the room
+     */
     private String name;
+    /**
+     * The description that the user receives when trying to get information about this character
+     */
     private String description;
+    /**
+     * Every word in this set can be used in order to target this character as command argument
+     */
     @JsonIgnore
     private Set<String> matchers = new HashSet<>();
+    /**
+     * The items that can be examined and grabbed in this room
+     */
     private Set<Item> items = new HashSet<>();
 
+    /**
+     * The NPCs that can be found in this room
+     */
     private ArrayList<NPC> npcs = new ArrayList<>();
 
     // For Jackson
@@ -36,6 +51,9 @@ public class Room implements Examinable, Serializable {
         matchers.add(name);
     }
 
+    /**
+     * @return the value of {@link #name}
+     */
     public String getName() {
         return this.name;
     }
@@ -65,14 +83,24 @@ public class Room implements Examinable, Serializable {
         return matchers;
     }
 
+    /**
+     * @return the value of {@link #items}
+     */
     public Set<Item> getItems() {
         return items;
     }
 
+    /**
+     * Adds a new item to the {@link #items} set
+     * @param item the item to be added
+     */
     public void addItem(Item item) {
         items.add(item);
     }
 
+    /**
+     * @return the value of {@link #npcs}
+     */
     public List<NPC> getNpcs() {
         return npcs;
     }
