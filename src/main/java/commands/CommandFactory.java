@@ -52,6 +52,8 @@ public class CommandFactory {
             // INVENTORY
             case "inventory":
                 return new InventoryCommand(player);
+            case "debug":
+                return new DebugCommand(player);
         }
 
         // More complex commands since a match has to be found
@@ -89,6 +91,13 @@ public class CommandFactory {
             String match = input.substring(6); // cut "fight" and leave the rest
             Fighter fighter = findFighter(player, match);
             return new FightCommand(state, player, fighter);
+        }
+
+        // USE ITEM
+        if (input.startsWith("use")) {
+            String match =  input.substring(4); // cut "use" and leave the rest
+            GrabbableItem item = findInInventory(player, match);
+            return new UseItemCommand(player, item);
         }
 
         return new NoCommand();

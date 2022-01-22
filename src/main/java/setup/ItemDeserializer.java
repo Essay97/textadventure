@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import entities.GrabbableItem;
 import entities.Item;
+import entities.ItemEffect;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -24,7 +25,20 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
 
         Item item = null;
         if (grab){
-            item = new GrabbableItem(root.get("name").asText(), root.get("description").asText());
+            JsonNode mods = root.get("modifiers");
+            System.out.println(mods.toString());
+
+
+            item = new GrabbableItem(root.get("name").asText(), root.get("description").asText(),
+                    new ItemEffect(
+                            extractItemEffect("HP", mods),
+                            extractItemEffect("attack", mods),
+                            extractItemEffect("burn", mods),
+                            extractItemEffect("poison", mods),
+                            extractItemEffect("stun", mods),
+                            root.get("oneShot").asBoolean()
+                    ));
+
         } else {
             item = new Item(root.get("name").asText(), root.get("description").asText());
         }
@@ -34,5 +48,13 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
         }
 
         return item;
+    }
+
+    private int extractItemEffect(String key, JsonNode node) {
+        if(node.has(key)) {
+            return node.get(key).asInt();
+        } else {
+            return 0;
+        }
     }
 }

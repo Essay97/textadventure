@@ -2,7 +2,7 @@ package entities;
 
 import entities.people.Fighter;
 
-public abstract class ItemEffect {
+public class ItemEffect {
     private int HPModifier;
     private int attackModifier;
     private int burnModifier;
@@ -10,28 +10,13 @@ public abstract class ItemEffect {
     private int stunModifier;
     private boolean oneShot;
 
-    public int getHPModifier() {
-        return HPModifier;
-    }
-
-    public int getAttackModifier() {
-        return attackModifier;
-    }
-
-    public int getBurnModifier() {
-        return burnModifier;
-    }
-
-    public int getPoisonModifier() {
-        return poisonModifier;
-    }
-
-    public int getStunModifier() {
-        return stunModifier;
-    }
-
-    public boolean isOneShot() {
-        return oneShot;
+    public ItemEffect(int HPModifier, int attackModifier, int burnModifier, int poisonModifier, int stunModifier, boolean oneShot) {
+        this.HPModifier = HPModifier;
+        this.attackModifier = attackModifier;
+        this.burnModifier = burnModifier;
+        this.poisonModifier = poisonModifier;
+        this.stunModifier = stunModifier;
+        this.oneShot = oneShot;
     }
 
     /**
@@ -39,17 +24,15 @@ public abstract class ItemEffect {
      * @param fighter the fighter to whom the modifiers must be applied
      * @return true if the ItemEffect must be destroyed after the use, false otherwise
      */
-    public boolean applyModifiers(Fighter fighter) {
+    public void applyModifiers(Fighter fighter) {
         if(oneShot) {
-            fighter.setHP(fighter.getHP() + HPModifier);
-            fighter.setMaxAttack(fighter.getHP() + HPModifier);
-            fighter.setPoisoned(fighter.getPoisoned() + poisonModifier);
-            fighter.setStunned(fighter.getStunned() + stunModifier);
-            fighter.setBurned(fighter.getBurned() + burnModifier);
-            return true;
+            fighter.setHP(Math.max(fighter.getHP() + HPModifier, 0));
+            fighter.setMaxAttack(Math.max(fighter.getHP() + attackModifier, 1));
+            fighter.setPoisoned(Math.max(fighter.getPoisoned() + poisonModifier, 0));
+            fighter.setStunned(Math.max(fighter.getStunned() + stunModifier, 0));
+            fighter.setBurned(Math.max(fighter.getBurned() + burnModifier, 0));
         } else {
             fighter.getEquip().add(this);
         }
-        return false;
     }
 }

@@ -1,9 +1,6 @@
 package setup;
 
-import entities.GameMap;
-import entities.GrabbableItem;
-import entities.Item;
-import entities.Room;
+import entities.*;
 import entities.people.FighterNPC;
 import entities.people.TalkerNPC;
 import utils.Input;
@@ -21,8 +18,10 @@ public class DummyMapBuildStrategy implements MapBuildStrategy {
         Room courtyard = new Room("Courtyard", "A breath of fresh air. E: forest, S: kitchen");
         Room forest = new Room("Forest", "A place with a lot of trees. W: courtyard");
 
-        kitchen.addItem(new GrabbableItem("coins", "a bag with some coins inside"));
-        kitchen.addItem(new GrabbableItem("spoon", "this is just a spoon..."));
+        kitchen.addItem(new GrabbableItem("coins", "a bag with some coins inside",
+                new ItemEffect(0, 0, 0, 0, 1, true)));
+        kitchen.addItem(new GrabbableItem("spoon", "this is just a spoon...",
+                new ItemEffect(0, 2, 0, 0, 1, false)));
         forest.addItem(new Item("tree", "the forest is full of trees"));
 
         TalkerNPC mum = new TalkerNPC("mum", "She's your mum. Seems like she has something to tell you.");

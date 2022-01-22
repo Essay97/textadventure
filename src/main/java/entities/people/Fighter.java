@@ -1,5 +1,6 @@
 package entities.people;
 
+import entities.GrabbableItem;
 import entities.ItemEffect;
 import entities.Matchable;
 import utils.Output;
@@ -115,6 +116,4 @@ public interface Fighter extends Matchable {
      * @return the equipment of the character
      */
     public List<ItemEffect> getEquip();
-
-
 }

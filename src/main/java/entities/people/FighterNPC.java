@@ -2,6 +2,7 @@ package entities.people;
 
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import entities.GrabbableItem;
 import entities.ItemEffect;
 import utils.FighterUtil;
 

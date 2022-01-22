@@ -8,10 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import entities.GameMap;
-import entities.GrabbableItem;
-import entities.Item;
-import entities.Room;
+import entities.*;
 import utils.Directions;
 
 /**
@@ -129,7 +126,7 @@ public class FileMapBuildStrategy implements MapBuildStrategy {
         String[] parts = itemData.split("-"); // [0]-> matchers; [1] -> grabbable or not
         String[] matchers = parts[0].split(","); // [0] -> name: [1..] -> all other matchers
         if(parts[1].equals("y")) {
-            item = new GrabbableItem(matchers[0], description);
+            item = new GrabbableItem(matchers[0], description, new ItemEffect(0, 0, 0, 0, 0, false));
         } else {
             item = new Item(matchers[0], description);
         }
