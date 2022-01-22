@@ -8,6 +8,10 @@ import entities.people.FighterNPC;
 import entities.people.TalkerNPC;
 import utils.Input;
 
+/**
+ * This strategy is intended for quick mocks of a map for debugging purposes. It's kind of a "playground" where you can
+ * instantiate by hand everything you need to test in the next program run.
+ */
 public class DummyMapBuildStrategy implements MapBuildStrategy {
 
     @Override

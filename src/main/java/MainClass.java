@@ -1,23 +1,15 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import commands.Command;
 import commands.CommandFactory;
 import commands.Invoker;
 import entities.GameMap;
 import entities.GameState;
-import entities.Item;
-import entities.Room;
 import entities.people.Player;
-import setup.DummyMapBuildStrategy;
 import setup.GameMapBuilder;
-import setup.JsonMapBuildStrategy;
 import setup.YamlMapBuildStrategy;
 import utils.Input;
 import utils.Output;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Arrays;
 
@@ -61,9 +53,9 @@ public class MainClass {
         while (state.isRunning()) {
             Command cmd = null;
             if (player.getHP() <= 0) {
-                Output.delayedOneLiner(800, Arrays.asList(".", ".", "."));
-                Output.delayedOneLiner(800, Arrays.asList(".", ".", "."));
-                Output.delayedOneLiner(800, Arrays.asList(".", ".", "."));
+                Output.postDelayedOneLiner(800, Arrays.asList(".", ".", "."));
+                Output.postDelayedOneLiner(800, Arrays.asList(".", ".", "."));
+                Output.postDelayedOneLiner(800, Arrays.asList(".", ".", "."));
                 System.out.println("You are dead.");
                 cmd = CommandFactory.makeCommand("quit", player, state);
             } else {

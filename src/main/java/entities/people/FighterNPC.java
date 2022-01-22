@@ -2,7 +2,11 @@ package entities.people;
 
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import entities.ItemEffect;
 import utils.FighterUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The concrete implementation of a NPC that has the only ability to fight. This means that he can be called as an argument
@@ -32,6 +36,22 @@ public class FighterNPC extends NPC implements Fighter {
      * When true, the character cannot suffer damage
      */
     private boolean isDefending = false;
+    /**
+     * The number of turns the player is burned
+     */
+    private int burned;
+    /**
+     * The number of turns the player is stunned
+     */
+    private int stunned;
+    /**
+     * The number of turns the player is poisoned
+     */
+    private int poisoned;
+    /**
+     * The equipment of the fighter
+     */
+    private List<ItemEffect> equip = new ArrayList<>();
 
     private FighterNPC() {}
 
@@ -67,8 +87,47 @@ public class FighterNPC extends NPC implements Fighter {
     }
 
     @Override
+    public int getStunned() {
+        return stunned;
+    }
+
+    @Override
+    public int getPoisoned() {
+        return poisoned;
+    }
+
+    @Override
+    public int getBurned() {
+        return burned;
+    }
+
+    @Override
+    public void setStunned(int stun) {
+        this.stunned = stun;
+    }
+
+    @Override
+    public void setPoisoned(int poison) {
+        this.poisoned = poison;
+    }
+
+    @Override
+    public void setBurned(int burn) {
+        this.burned = burn;
+    }
+
+    @Override
     public int getMaxAttack() {
         return maxAttack;
     }
 
+    @Override
+    public void setMaxAttack(int newMax) {
+        maxAttack = newMax;
+    }
+
+    @Override
+    public List<ItemEffect> getEquip() {
+        return equip;
+    }
 }

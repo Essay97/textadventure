@@ -29,6 +29,7 @@ public abstract class Character implements Examinable, Serializable {
      */
     private Set<String> matchers = new HashSet<>();
 
+
     protected Character(String name, String description) {
         this.name = name;
         this.description = description;

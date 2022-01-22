@@ -3,6 +3,10 @@ package commands.gameflow;
 import commands.Command;
 import entities.GameState;
 
+/**
+ * Ends the game and stops the run. If not manually saved, the game data will be lost after the invocation of this command.
+ * It is triggered by the word <code>quit</code>
+ */
 public class EndGameCommand implements Command {
 
     private GameState state;

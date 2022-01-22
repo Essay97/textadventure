@@ -4,9 +4,18 @@ import entities.GameState;
 import entities.GrabbableItem;
 import entities.people.Player;
 
+/**
+ * Drops an {@link entities.Item} in the inventory. It is triggered by the word <code>drop</code>
+ */
 public class DropCommand extends BaseCommand {
 
+    /**
+     * The player that holds the item to be dropped
+     */
     private Player player;
+    /**
+     * The item to be dropped
+     */
     private GrabbableItem item;
 
     public DropCommand(Player player, GameState state, GrabbableItem item) {
@@ -14,6 +23,7 @@ public class DropCommand extends BaseCommand {
         this.player = player;
         this.item = item;
     }
+
 
     @Override
     public boolean canUnexecute() {

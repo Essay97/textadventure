@@ -6,6 +6,9 @@ import entities.Movable;
 import entities.people.Player;
 import utils.Output;
 
+/**
+ * Basic movement command
+ */
 public abstract class MoveCommand extends BaseCommand {
 
     private Movable mover;

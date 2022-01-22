@@ -5,6 +5,9 @@ import entities.people.Fighter;
 import entities.people.Player;
 import utils.Input;
 
+/**
+ * Starts a fight sequence against a specific target. It is triggered by the word <code>fight</code>
+ */
 public class FightCommand extends BaseCommand {
 
     private Fighter f1;
@@ -28,9 +31,15 @@ public class FightCommand extends BaseCommand {
         } else {
             System.out.println("FIGHT STARTS!");
             while(f1.getHP() > 0 && f2.getHP() > 0) {
-                chooseAction(f1, f2);
+                applyStatus(f1);
+                if(f1.getStunned() < 1) {
+                    chooseAction(f1, f2);
+                }
                 if(f2.getHP() > 0) {
-                    chooseAction(f2, f1);
+                    applyStatus(f2);
+                    if(f2.getStunned() < 1) {
+                        chooseAction(f2, f1);
+                    }
                 }
             }
             if(f1.getHP() <= 0) {
@@ -70,6 +79,17 @@ public class FightCommand extends BaseCommand {
         } else {
             // NPCs always attack
             fighter.attack(target);
+        }
+    }
+
+    private void applyStatus(Fighter fighter) {
+        if(fighter.getBurned() > 0) {
+            fighter.setHP(fighter.getHP() - 1);
+            fighter.setBurned(fighter.getBurned() - 1);
+        }
+        if(fighter.getPoisoned() > 0) {
+            fighter.setHP(fighter.getHP() - 2);
+            fighter.setPoisoned(fighter.getPoisoned() - 1);
         }
     }
 

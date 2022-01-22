@@ -1,7 +1,10 @@
 package entities.people;
 
+import entities.ItemEffect;
 import entities.Matchable;
 import utils.Output;
+
+import java.util.List;
 
 /**
  * The interface gives the ability to use the <code>fight</code> command.
@@ -48,6 +51,12 @@ public interface Fighter extends Matchable {
     int getMaxAttack();
 
     /**
+     * Updates the value returned by {@link #getMaxAttack()}
+     * @param newMax the new value
+     */
+    void setMaxAttack(int newMax);
+
+    /**
      * Updates the value returned by {@link #getHP()}
      * @param hp the new value
      */
@@ -68,4 +77,44 @@ public interface Fighter extends Matchable {
      * @param def the new value
      */
     void setDefending(boolean def);
+
+    /**
+     * @return the remaining turns stunned
+     */
+    int getStunned();
+
+    /**
+     * @return the remaining turns poisoned
+     */
+    int getPoisoned();
+
+    /**
+     * @return the remaining turns burned
+     */
+    int getBurned();
+
+    /**
+     * Updates the value returned by {@link #getStunned()}
+     * @param stun the new value
+     */
+    void setStunned(int stun);
+
+    /**
+     * Updates the value returned by {@link #getPoisoned()}
+     * @param poison the new value
+     */
+    void setPoisoned(int poison);
+
+    /**
+     * Updates the value returned by {@link #getBurned()}
+     * @param burn the new value
+     */
+    void setBurned(int burn);
+
+    /**
+     * @return the equipment of the character
+     */
+    public List<ItemEffect> getEquip();
+
+
 }

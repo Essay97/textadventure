@@ -3,8 +3,14 @@ package commands;
 import entities.Examinable;
 import entities.GameState;
 
+/**
+ * Gain information about a specific target. It is triggered by the word <code>examine</code>
+ */
 public class ExamineCommand extends BaseCommand {
 
+    /**
+     * The item you want to gain information about
+     */
     private Examinable item;
 
     public ExamineCommand(Examinable item, GameState state) {

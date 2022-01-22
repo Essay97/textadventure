@@ -3,10 +3,7 @@ package entities.people;
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.GameMap;
-import entities.GrabbableItem;
-import entities.Movable;
-import entities.Room;
+import entities.*;
 import utils.FighterUtil;
 
 /**
@@ -45,6 +42,22 @@ public class Player extends Character implements Movable, Fighter {
      * When true, the character cannot suffer damage
      */
     private boolean isDefending;
+    /**
+     * The number of turns the player is burned
+     */
+    private int burned;
+    /**
+     * The number of turns the player is stunned
+     */
+    private int stunned;
+    /**
+     * The number of turns the player is poisoned
+     */
+    private int poisoned;
+    /**
+     * The equipment of the fighter
+     */
+    private List<ItemEffect> equip = new ArrayList<>();
 
     public Player(String name, String description) {
         super(name, description);
@@ -167,8 +180,49 @@ public class Player extends Character implements Movable, Fighter {
     }
 
     @Override
+    public int getStunned() {
+        return stunned;
+    }
+
+    @Override
+    public int getPoisoned() {
+        return poisoned;
+    }
+
+    @Override
+    public int getBurned() {
+        return burned;
+    }
+
+    @Override
+    public void setStunned(int stun) {
+        this.stunned = stun;
+    }
+
+    @Override
+    public void setPoisoned(int poison) {
+        this.poisoned = poison;
+    }
+
+    @Override
+    public void setBurned(int burn) {
+        this.burned = burn;
+    }
+
+
+    @Override
     public int getMaxAttack() {
         return maxAttack;
+    }
+
+    @Override
+    public void setMaxAttack(int newMax) {
+        maxAttack = newMax;
+    }
+
+    @Override
+    public List<ItemEffect> getEquip() {
+        return equip;
     }
 
 }

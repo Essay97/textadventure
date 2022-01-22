@@ -5,12 +5,23 @@ import java.util.concurrent.TimeUnit;
 import entities.Item;
 import entities.people.Player;
 
+/**
+ * This class helps managing recurrent outputs
+ */
 public class Output {
+    /**
+     * Prints the current position of the given player
+     * @param p the player whom position will be printed
+     */
     public static void position(Player p) {
         System.out.println("You are in " + p.getCurrentRoom().getName());
         System.out.println(p.getCurrentRoom().examine());
     }
 
+    /**
+     * Prints the inventory of the given player
+     * @param p the player whom inventory will be printed
+     */
     public static void inventory(Player p) {
         if (p.getInventory().isEmpty()) {
             System.out.println("Your inventory is empty.");
@@ -22,6 +33,9 @@ public class Output {
         }
     }
 
+    /**
+     * Prints a quick tutorial for the player
+     */
     public static void tutorial() {
         System.out.println("GAME COMMANDS");
         System.out.println("- gather information about something: examine *something*");
@@ -36,6 +50,11 @@ public class Output {
         System.out.println();
     }
 
+    /**
+     * Prints a line of text and then stops the execution for a given time delay
+     * @param ms the stop time in milliseconds
+     * @param msg the message to be printed
+     */
     public static void postDelayed(int ms, String msg) {
         try {
             System.out.println(msg);
@@ -45,7 +64,13 @@ public class Output {
         }
     }
 
-    public static void delayedOneLiner(int ms, Iterable<String> chunks) {
+    /**
+     * Prints a line of text one chunk at a time, each chunk on the same line, stopping the execution after each character
+     * print.
+     * @param ms the stop time in milliseconds
+     * @param chunks the chunks of text to be printed
+     */
+    public static void postDelayedOneLiner(int ms, Iterable<String> chunks) {
         try {
             for(String chunk : chunks) {
                 System.out.print(chunk);

@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class YamlMapBuildStrategy implements MapBuildStrategy {
+    /**
+     * The name of the parsed file
+     */
     private String filename;
 
     public YamlMapBuildStrategy(String filename) {

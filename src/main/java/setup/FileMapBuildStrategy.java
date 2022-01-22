@@ -14,6 +14,14 @@ import entities.Item;
 import entities.Room;
 import utils.Directions;
 
+/**
+ * @deprecated
+ * This strategy takes a <code>.txt</code> file written in a specific format and returns a {@link GameMap}. It will
+ * not be further documented since it is highly incomplete and no more maintained in favour of better strategies.
+ *
+ * @see JsonMapBuildStrategy
+ * @see YamlMapBuildStrategy
+ */
 public class FileMapBuildStrategy implements MapBuildStrategy {
 
     private String fileName;

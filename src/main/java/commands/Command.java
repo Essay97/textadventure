@@ -1,9 +1,21 @@
 package commands;
 
+/**
+ * This interface gives a general structure to a command
+ */
 public interface Command {
-    public void execute();
+    /**
+     * Runs the command
+     */
+    void execute();
 
-    public void unexecute();
+    /**
+     * Rolls back the effect of the command
+     */
+    void unexecute();
 
-    public boolean canUnexecute();
+    /**
+     * @return <code>true</code> if this command is intended to be unexecuted (i.e. implement {@link #unexecute()}
+     */
+    boolean canUnexecute();
 }

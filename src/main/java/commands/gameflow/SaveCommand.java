@@ -9,6 +9,9 @@ import commands.Command;
 import entities.GameState;
 import entities.people.Player;
 
+/**
+ * Saves the current state of the game. It is triggered by the word <code>save</code>
+ */
 public class SaveCommand implements Command {
 
     private GameState state;

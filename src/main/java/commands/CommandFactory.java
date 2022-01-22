@@ -17,7 +17,17 @@ import entities.people.Fighter;
 import entities.people.Player;
 import entities.people.Talker;
 
+/**
+ * This class is responsible for creating commands based on the text typed by the player.
+ */
 public class CommandFactory {
+    /**
+     * Creates the command
+     * @param input user input
+     * @param player player of the current game
+     * @param state current state of the game
+     * @return the wanted command
+     */
     public static Command makeCommand(String input, Player player, GameState state) {
         switch (input) {
             // MOVEMENT

@@ -11,6 +11,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import entities.people.NPC;
 import utils.MatchableUtil;
 
+/**
+ * Represents a room in the world of the game. Each room belongs to a {@link GameMap} and is an abstraction for a generic
+ * place in the world: it does not have to be an actual closed place inside a building or something. In the game domain,
+ * a room is just a place connected to other places and that can contain items (both grabbable and not, everything the player
+ * can interact with is an item) and NPCs.
+ *
+ * @see GameMap
+ * @see NPC
+ * @see Item
+ * @see Movable
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Room implements Examinable, Serializable {
     private static final long serialVersionUID = -8007406889019398847L;

@@ -2,6 +2,12 @@ package setup;
 
 import entities.GameMap;
 
+/**
+ * This interface represents a generic way of building a map
+ */
 public interface MapBuildStrategy {
-    public GameMap build();
+    /**
+     * @return a fully functional map, built in various ways defined in the concrete implementation of the interface
+     */
+    GameMap build();
 }

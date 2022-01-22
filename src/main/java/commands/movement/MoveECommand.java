@@ -3,6 +3,9 @@ package commands.movement;
 import entities.GameState;
 import entities.Movable;
 
+/**
+ * Move to the East
+ */
 public class MoveECommand extends MoveCommand {
 
     public MoveECommand(Movable mover, GameState state) {

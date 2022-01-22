@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 
 import commands.Command;
 
+/**
+ * Deletes the saved game session. All data will be lost. It is triggered by the word <code>delete</code>
+ */
 public class DeleteSaveCommand implements Command {
 
     @Override

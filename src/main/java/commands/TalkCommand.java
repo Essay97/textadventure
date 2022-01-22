@@ -3,6 +3,9 @@ package commands;
 import entities.GameState;
 import entities.people.Talker;
 
+/**
+ * Starts a dialogue sequence with a specific target. It is triggered by the word <code>talk</code>
+ */
 public class TalkCommand extends BaseCommand {
 
     private Talker talker;
