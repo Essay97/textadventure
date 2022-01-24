@@ -17,7 +17,7 @@ import java.util.*;
 public class GameMapDeserializer extends JsonDeserializer<GameMap> {
 
     @Override
-    public GameMap deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+    public GameMap deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectMapper om = new ObjectMapper();
 
         GameMap map = new GameMap();

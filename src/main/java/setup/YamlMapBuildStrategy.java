@@ -22,7 +22,6 @@ public class YamlMapBuildStrategy implements MapBuildStrategy {
         ObjectMapper om = new ObjectMapper(new YAMLFactory());
         GameMap map = null;
         try {
-            System.out.println(filename);
             map = om.readValue(new File(filename), GameMap.class);
         } catch (IOException e) {
             e.printStackTrace();

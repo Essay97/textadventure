@@ -78,12 +78,15 @@ public class FightCommand extends BaseCommand {
                         //TODO implement item usage during fight
                         List<GrabbableItem> inventory = ((Player) fighter).getInventory();
                         if(!inventory.isEmpty()) {
-                            System.out.println("Which item do you want to use?");
-                            for(int i = 0; i < inventory.size(); i++) {
-                                System.out.println((i+1) + " - " + inventory.get(i).getName());
-                            }
-                            int itemChoice = Input.intPrompt();
-                            System.out.println("You choose "  + itemChoice);
+                            int itemChoice;
+                            do {
+                                System.out.println("Which item do you want to use? Choose one of the following: ");
+                                for (int i = 0; i < inventory.size(); i++) {
+                                    System.out.println((i + 1) + " - " + inventory.get(i).getName());
+                                }
+                                itemChoice = Input.intPrompt() - 1;
+                            } while (itemChoice < 0 || itemChoice >= inventory.size());
+                            System.out.println("You chose " + inventory.get(itemChoice).getName());
 
                         } else {
                             System.out.println("You don't have any items to use...");

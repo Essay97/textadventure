@@ -26,8 +26,6 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
         Item item = null;
         if (grab){
             JsonNode mods = root.get("modifiers");
-            System.out.println(mods.toString());
-
 
             item = new GrabbableItem(root.get("name").asText(), root.get("description").asText(),
                     new ItemEffect(
