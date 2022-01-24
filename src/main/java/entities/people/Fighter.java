@@ -28,7 +28,9 @@ public interface Fighter extends Matchable {
         int delay = 1200;
         Output.postDelayed(delay, getName() + " attacks!");
         if(!enemy.isDefending()) {
-            int newHP = enemy.getHP() - getAttack();
+            int atk = getAttack();
+            System.out.println(getName() + " rolls a " + atk + "!");
+            int newHP = enemy.getHP() - atk;
             enemy.setHP(newHP);
             int printHP = Math.max(enemy.getHP(), 0);
             Output.postDelayed(delay, enemy.getName() + " has " + printHP + "HP left.");

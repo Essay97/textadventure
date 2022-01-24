@@ -17,4 +17,9 @@ public class Input {
         System.out.print("-> ");
         return s.nextLine();
     }
+
+    public static int intPrompt() {
+        System.out.print("-> ");
+        return s.nextInt();
+    }
 }

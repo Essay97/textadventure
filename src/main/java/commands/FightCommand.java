@@ -1,9 +1,12 @@
 package commands;
 
 import entities.GameState;
+import entities.GrabbableItem;
 import entities.people.Fighter;
 import entities.people.Player;
 import utils.Input;
+
+import java.util.List;
 
 /**
  * Starts a fight sequence against a specific target. It is triggered by the word <code>fight</code>
@@ -62,6 +65,7 @@ public class FightCommand extends BaseCommand {
             System.out.println("What do you want to do?");
             System.out.println("\t1 - attack");
             System.out.println("\t2 - defend");
+            System.out.println("\t3 - use item");
             while(true) {
                 try {
                     String input = Input.prompt();
@@ -70,6 +74,20 @@ public class FightCommand extends BaseCommand {
                         fighter.attack(target);
                     } else if(choice == 2) {
                         fighter.setDefending(true);
+                    } else if(choice == 3) {
+                        //TODO implement item usage during fight
+                        List<GrabbableItem> inventory = ((Player) fighter).getInventory();
+                        if(!inventory.isEmpty()) {
+                            System.out.println("Which item do you want to use?");
+                            for(int i = 0; i < inventory.size(); i++) {
+                                System.out.println((i+1) + " - " + inventory.get(i).getName());
+                            }
+                            int itemChoice = Input.intPrompt();
+                            System.out.println("You choose "  + itemChoice);
+
+                        } else {
+                            System.out.println("You don't have any items to use...");
+                        }
                     }
                     break;
                 } catch(Exception e) {

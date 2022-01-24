@@ -60,44 +60,58 @@ public class CommandFactory {
 
         // EXAMINE
         if (input.startsWith("examine")) {
-            String match = input.substring(8); // cut "examine" and keep the rest
-            Examinable item = findExaminable(player, match);
-            return new ExamineCommand(item, state);
+            String match = extractArgument("examine", input);
+            System.out.println(match);
+            if(match != null) {
+                Examinable item = findExaminable(player, match);
+                return new ExamineCommand(item, state);
+            }
         }
 
         // GRAB
         if (input.startsWith("grab")) {
-            String match = input.substring(5); // cut "grab" and leave the rest
-            GrabbableItem item = findGrabbable(player, match);
-            return new GrabCommand(player, state, item);
+            String match = extractArgument("grab", input);
+            if(match != null) {
+                GrabbableItem item = findGrabbable(player, match);
+                return new GrabCommand(player, state, item);
+            }
         }
 
         // DROP
         if (input.startsWith("drop")) {
-            String match = input.substring(5); // cut "drop" and leave the rest
-            GrabbableItem item = findInInventory(player, match);
-            return new DropCommand(player, state, item);
+            String match = extractArgument("drop", input);
+            if(match != null) {
+                GrabbableItem item = findInInventory(player, match);
+                return new DropCommand(player, state, item);
+            }
         }
 
         // TALK
         if (input.startsWith("talk")) {
-            String match = input.substring(5); // cut "talk" and leave the rest
-            Talker talker = findTalker(player, match);
-            return new TalkCommand(state, talker);
+            String match = extractArgument("talk", input);
+            if(match != null) {
+                Talker talker = findTalker(player, match);
+                return new TalkCommand(state, talker);
+            }
         }
 
         // FIGHT
         if (input.startsWith("fight")) {
-            String match = input.substring(6); // cut "fight" and leave the rest
-            Fighter fighter = findFighter(player, match);
-            return new FightCommand(state, player, fighter);
+            String match = extractArgument("fight", input);
+            if(match != null) {
+                Fighter fighter = findFighter(player, match);
+                return new FightCommand(state, player, fighter);
+            }
         }
 
         // USE ITEM
         if (input.startsWith("use")) {
-            String match =  input.substring(4); // cut "use" and leave the rest
-            GrabbableItem item = findInInventory(player, match);
-            return new UseItemCommand(player, item);
+            String match = extractArgument("use", input);
+            if (match != null) {
+                GrabbableItem item = findInInventory(player, match);
+                return new UseItemCommand(player, item);
+            }
+
         }
 
         return new NoCommand();
@@ -118,10 +132,12 @@ public class CommandFactory {
 
         // Check current room
         if (p.getCurrentRoom().matches(match)) {
+            System.out.println("FOUND A ROOM");
             found = p.getCurrentRoom();
         }
 
         // Check items in room
+        System.out.println("ROOMS MATCH: " + p.getCurrentRoom().getMatchers());
         check = (Examinable) findMatchable(p.getCurrentRoom().getItems(), match);
         if(check != null) found = check;
 
@@ -161,5 +177,14 @@ public class CommandFactory {
                 .findFirst().orElse(null);
 
         return matchable;
+    }
+
+    private static String extractArgument(String cmd, String input) {
+        String match = input.substring(cmd.length()).trim();
+        if (match.equals("")) {
+            System.out.println("Wait... " + cmd + " who? What?");
+            return null;
+        }
+        return match;
     }
 }

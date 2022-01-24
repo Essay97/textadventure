@@ -50,16 +50,16 @@ public class Room implements Examinable, Serializable {
     private ArrayList<NPC> npcs = new ArrayList<>();
 
     // For Jackson
-    private Room() {}
-
-    public Room(String name, String description) {
-        this.name = name;
-        this.description = description;
+    private Room() {
         matchers.add("this room");
         matchers.add("room");
         matchers.add("this place");
         matchers.add("place");
-        matchers.add(name);
+    }
+
+    public Room(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
     /**

@@ -64,7 +64,7 @@ public class Player extends Character implements Movable, Fighter {
         getMatchers().add("me");
         getMatchers().add("player");
         maxAttack = 6;
-        hp = 1;
+        hp = 90;
     }
 
     /**
