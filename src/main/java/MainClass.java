@@ -38,7 +38,7 @@ public class MainClass {
             // GameMapBuilder builder = new GameMapBuilder(new FileMapBuildStrategy("map1.txt"));
             // GameMapBuilder builder = new GameMapBuilder(new DummyMapBuildStrategy());
             // GameMapBuilder builder = new GameMapBuilder(new JsonMapBuildStrategy("map3.json"));
-            GameMapBuilder builder = new GameMapBuilder(new YamlMapBuildStrategy("map4.yml"));
+            GameMapBuilder builder = new GameMapBuilder(new YamlMapBuildStrategy("mapTry.yml"));
             GameMap map = builder.build();
 
             player = new Player("Enrico", "This is me");

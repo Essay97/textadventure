@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class NPCDeserializer extends JsonDeserializer<NPC> {
     @Override
-    public NPC deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+    public NPC deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectMapper om = new ObjectMapper();
 
         JsonNode root = jsonParser.getCodec().readTree(jsonParser);

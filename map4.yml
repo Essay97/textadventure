@@ -29,7 +29,7 @@ rooms:
           These strange blue stones... I don't know what they mean but they're
           kind of warm.
         modifiers:
-          HP: 0
+          HP: 55
           stun: -1
         oneShot: True
       - name: paralizer

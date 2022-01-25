@@ -86,8 +86,9 @@ public class FightCommand extends BaseCommand {
                                 }
                                 itemChoice = Input.intPrompt() - 1;
                             } while (itemChoice < 0 || itemChoice >= inventory.size());
-                            System.out.println("You chose " + inventory.get(itemChoice).getName());
-
+                            GrabbableItem chosen = inventory.get(itemChoice);
+                            System.out.println("You use " + chosen.getName() + "!");
+                            chosen.useOn((Player) fighter);
                         } else {
                             System.out.println("You don't have any items to use...");
                         }

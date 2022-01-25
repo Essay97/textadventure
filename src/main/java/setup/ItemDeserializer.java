@@ -12,6 +12,7 @@ import entities.Item;
 import entities.ItemEffect;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 
 public class ItemDeserializer extends JsonDeserializer<Item> {
@@ -21,9 +22,9 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
 
         ObjectNode root = jsonParser.getCodec().readTree(jsonParser);
 
-        boolean grab = root.get("grab").asBoolean();
+        boolean grab = extractBoolean("grab", root);
 
-        Item item = null;
+        Item item;
         if (grab){
             JsonNode mods = root.get("modifiers");
 
@@ -34,16 +35,19 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
                             extractItemEffect("burn", mods),
                             extractItemEffect("poison", mods),
                             extractItemEffect("stun", mods),
-                            root.get("oneShot").asBoolean()
+                            extractBoolean("oneShot", root)
                     ));
 
         } else {
             item = new Item(root.get("name").asText(), root.get("description").asText());
         }
-        Iterator<JsonNode> i = root.get("matchers").elements();
-        while (i.hasNext()) {
-            item.getMatchers().add(i.next().asText());
+        if(root.has("matchers")) {
+            Iterator<JsonNode> i = root.get("matchers").elements();
+            while (i.hasNext()) {
+                item.getMatchers().add(i.next().asText());
+            }
         }
+
 
         return item;
     }
@@ -53,6 +57,14 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
             return node.get(key).asInt();
         } else {
             return 0;
+        }
+    }
+
+    private boolean extractBoolean(String key, JsonNode node) {
+        if(node.has(key)) {
+            return node.get(key).asBoolean();
+        } else {
+            return false;
         }
     }
 }
