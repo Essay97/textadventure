@@ -16,7 +16,7 @@ public interface Matchable {
      * @return the set of all the strings that can be used as command arguments in order to trigger the match with this
      * object
      */
-    public Set<String> getMatchers();
+    Set<String> getMatchers();
 
     /**
      * Given the string passed as parameter to the command, this returns <code>true</code> if the string is a suitable
@@ -24,5 +24,5 @@ public interface Matchable {
      * @param id the string parameter of a command
      * @return a boolean that represents the match
      */
-    public boolean matches(String id);
+    boolean matches(String id);
 }

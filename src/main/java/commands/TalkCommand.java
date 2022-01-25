@@ -8,7 +8,7 @@ import entities.people.Talker;
  */
 public class TalkCommand extends BaseCommand {
 
-    private Talker talker;
+    private final Talker talker;
 
     public TalkCommand(GameState state, Talker talker) {
         super(state);

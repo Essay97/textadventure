@@ -4,7 +4,7 @@ import entities.people.Player;
 
 public class DebugCommand implements Command {
 
-    Player player;
+    final Player player;
 
     public DebugCommand(Player player) {
         this.player = player;

@@ -12,11 +12,11 @@ public class DropCommand extends BaseCommand {
     /**
      * The player that holds the item to be dropped
      */
-    private Player player;
+    private final Player player;
     /**
      * The item to be dropped
      */
-    private GrabbableItem item;
+    private final GrabbableItem item;
 
     public DropCommand(Player player, GameState state, GrabbableItem item) {
         super(state);

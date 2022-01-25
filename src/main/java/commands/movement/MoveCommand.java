@@ -11,7 +11,7 @@ import utils.Output;
  */
 public abstract class MoveCommand extends BaseCommand {
 
-    private Movable mover;
+    private final Movable mover;
 
     public MoveCommand(Movable mover, GameState state) {
         super(state);
@@ -20,10 +20,6 @@ public abstract class MoveCommand extends BaseCommand {
 
     public Movable getMover() {
         return mover;
-    }
-
-    public void setMover(Movable mover) {
-        this.mover = mover;
     }
 
     @Override

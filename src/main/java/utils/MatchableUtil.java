@@ -1,7 +1,6 @@
 package utils;
 
 import entities.Matchable;
-import entities.people.Fighter;
 
 /**
  * Utility class to be used in {@link Matchable} concrete implementations

@@ -10,7 +10,7 @@ public abstract class BaseCommand implements Command {
     /**
      * The game state at this moment
      */
-    private GameState state;
+    private final GameState state;
 
     public BaseCommand(GameState state) {
         super();

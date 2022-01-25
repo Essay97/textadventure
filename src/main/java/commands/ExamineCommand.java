@@ -11,7 +11,7 @@ public class ExamineCommand extends BaseCommand {
     /**
      * The item you want to gain information about
      */
-    private Examinable item;
+    private final Examinable item;
 
     public ExamineCommand(Examinable item, GameState state) {
         super(state);

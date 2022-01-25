@@ -1,6 +1,5 @@
 package setup;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.GameMap;
 
@@ -16,7 +15,7 @@ public class JsonMapBuildStrategy implements MapBuildStrategy {
     /**
      * The name of the parsed file
      */
-    private String filename;
+    private final String filename;
 
     public JsonMapBuildStrategy(String filename) {
         this.filename = filename;

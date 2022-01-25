@@ -11,7 +11,7 @@ public class YamlMapBuildStrategy implements MapBuildStrategy {
     /**
      * The name of the parsed file
      */
-    private String filename;
+    private final String filename;
 
     public YamlMapBuildStrategy(String filename) {
         this.filename = filename;

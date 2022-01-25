@@ -14,8 +14,8 @@ import entities.people.Player;
  */
 public class SaveCommand implements Command {
 
-    private GameState state;
-    private Player player;
+    private final GameState state;
+    private final Player player;
 
     public SaveCommand(Player player, GameState state) {
         super();

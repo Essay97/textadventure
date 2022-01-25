@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class FightCommand extends BaseCommand {
 
-    private Fighter f1;
-    private Fighter f2;
+    private final Fighter f1;
+    private final Fighter f2;
 
     public FightCommand(GameState state, Fighter f1, Fighter f2) {
         super(state);

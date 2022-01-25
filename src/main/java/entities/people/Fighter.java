@@ -1,11 +1,7 @@
 package entities.people;
 
-import entities.GrabbableItem;
-import entities.ItemEffect;
 import entities.Matchable;
 import utils.Output;
-
-import java.util.List;
 
 /**
  * The interface gives the ability to use the <code>fight</code> command.
@@ -114,8 +110,4 @@ public interface Fighter extends Matchable {
      */
     void setBurned(int burn);
 
-    /**
-     * @return the equipment of the character
-     */
-    public List<ItemEffect> getEquip();
 }

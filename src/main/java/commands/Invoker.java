@@ -10,7 +10,7 @@ public class Invoker {
     /**
      * The list of all the commands that have been invoked (without being uninvoked)
      */
-    private Stack<Command> history = new Stack<>();
+    private final Stack<Command> history = new Stack<>();
 
     /**
      * Actually invokes the given command

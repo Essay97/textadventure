@@ -1,7 +1,6 @@
 package entities.people;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +9,7 @@ import java.util.List;
  * @see Dialogue
  * @see DialogueTemplate
  */
-public class DialogueChunk {
+public class DialogueChunk implements Serializable {
     /**
      * The actual phrase stored in the chunk
      */

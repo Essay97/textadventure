@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DialogueTemplateDeserializer extends JsonDeserializer<DialogueTemplate> {
     @Override
-    public DialogueTemplate deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+    public DialogueTemplate deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectMapper om = new ObjectMapper();
 
         JsonNode root = jsonParser.getCodec().readTree(jsonParser);

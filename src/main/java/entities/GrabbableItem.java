@@ -8,7 +8,7 @@ import entities.people.Player;
  */
 public class GrabbableItem extends Item {
     private static final long serialVersionUID = -5423337564059819378L;
-    private ItemEffect effect;
+    private final ItemEffect effect;
 
     public GrabbableItem(String name, String description, ItemEffect effect) {
         super(name, description);
@@ -17,5 +17,9 @@ public class GrabbableItem extends Item {
 
     public void useOn(Player p) {
         effect.applyModifiers(p);
+    }
+
+    protected ItemEffect getEffect() {
+        return effect;
     }
 }

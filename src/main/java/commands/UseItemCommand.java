@@ -1,13 +1,12 @@
 package commands;
 
 import entities.GrabbableItem;
-import entities.people.Fighter;
 import entities.people.Player;
 
 public class UseItemCommand implements Command {
 
-    private Player player;
-    private GrabbableItem item;
+    private final Player player;
+    private final GrabbableItem item;
 
     public UseItemCommand(Player player, GrabbableItem item) {
         this.player = player;

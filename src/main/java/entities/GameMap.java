@@ -15,7 +15,6 @@ import utils.Directions;
  * <ul>
  *     <li>By parsing a JSON file with {@link setup.JsonMapBuildStrategy}</li>
  *     <li>By parsing a YAML file with {@link setup.YamlMapBuildStrategy}</li>
- *     <li>By parsing a text file with {@link setup.FileMapBuildStrategy}</li>
  *     <li>You can get a dummy map for testing with {@link setup.DummyMapBuildStrategy}</li>
  * </ul>
  * <p>A public constructor is also available but you should really avoid using it, instead implement {@link setup.MapBuildStrategy}
@@ -25,7 +24,6 @@ import utils.Directions;
  * @see setup.MapBuildStrategy
  * @see setup.JsonMapBuildStrategy
  * @see setup.YamlMapBuildStrategy
- * @see setup.FileMapBuildStrategy
  * @see setup.DummyMapBuildStrategy
  */
 @JsonDeserialize(using = GameMapDeserializer.class)
@@ -35,7 +33,7 @@ public class GameMap implements Serializable {
     /**
      * The actual map represented as a graph (adjacency list)
      */
-    private Map<Room, Map<Directions, Room>> map = new HashMap<>();
+    private final Map<Room, Map<Directions, Room>> map = new HashMap<>();
     /**
      * The room where the game starts
      */

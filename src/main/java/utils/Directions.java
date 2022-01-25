@@ -5,6 +5,6 @@ import java.io.Serializable;
 /**
  * Represents North, South, West, East
  */
-public enum Directions implements Serializable {
+public enum Directions {
     N, S, W, E
 }

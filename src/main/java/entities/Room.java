@@ -38,16 +38,16 @@ public class Room implements Examinable, Serializable {
      * Every word in this set can be used in order to target this character as command argument
      */
     @JsonIgnore
-    private Set<String> matchers = new HashSet<>();
+    private final Set<String> matchers = new HashSet<>();
     /**
      * The items that can be examined and grabbed in this room
      */
-    private Set<Item> items = new HashSet<>();
+    private final Set<Item> items = new HashSet<>();
 
     /**
      * The NPCs that can be found in this room
      */
-    private ArrayList<NPC> npcs = new ArrayList<>();
+    private final ArrayList<NPC> npcs = new ArrayList<>();
 
     // For Jackson
     private Room() {

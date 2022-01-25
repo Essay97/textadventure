@@ -9,7 +9,7 @@ import entities.GameState;
  */
 public class EndGameCommand implements Command {
 
-    private GameState state;
+    private final GameState state;
 
     public EndGameCommand(GameState state) {
         super();

@@ -18,7 +18,7 @@ public class DialogueTemplate implements Dialogue {
     /**
      * The list of all the parts of the dialogue
      */
-    List<DialogueChunk> chunks;
+    final List<DialogueChunk> chunks;
 
     public DialogueTemplate(List<DialogueChunk> chunks) {
         this.chunks = chunks;

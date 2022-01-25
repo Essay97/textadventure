@@ -8,8 +8,8 @@ import entities.people.Player;
  * Puts in the inventory a {@link GrabbableItem} that's inside the current room. It is triggered by the word <code>grab</code>
  */
 public class GrabCommand extends BaseCommand {
-    private Player player;
-    private GrabbableItem item;
+    private final Player player;
+    private final GrabbableItem item;
 
     public GrabCommand(Player player, GameState state, GrabbableItem item) {
         super(state);

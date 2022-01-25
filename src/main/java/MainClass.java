@@ -16,8 +16,8 @@ import java.util.Arrays;
 public class MainClass {
     public static void main(String[] args) {
 
-        Player player = null;
-        GameState state = null;
+        Player player;
+        GameState state;
 
         try {
             // Get player
@@ -48,10 +48,10 @@ public class MainClass {
 
         Output.tutorial();
         Output.position(player);
-        String input = null;
+        String input;
         Invoker invoker = new Invoker();
         while (state.isRunning()) {
-            Command cmd = null;
+            Command cmd;
             if (player.getHP() <= 0) {
                 Output.postDelayedOneLiner(800, Arrays.asList(".", ".", "."));
                 Output.postDelayedOneLiner(800, Arrays.asList(".", ".", "."));

@@ -61,7 +61,6 @@ public class CommandFactory {
         // EXAMINE
         if (input.startsWith("examine")) {
             String match = extractArgument("examine", input);
-            System.out.println(match);
             if(match != null) {
                 Examinable item = findExaminable(player, match);
                 return new ExamineCommand(item, state);
@@ -123,7 +122,7 @@ public class CommandFactory {
 
     private static Examinable findExaminable(Player p, String match) {
         Examinable found = null;
-        Examinable check = null;
+        Examinable check;
 
         // Check player
         if (p.matches(match)) {
@@ -132,12 +131,10 @@ public class CommandFactory {
 
         // Check current room
         if (p.getCurrentRoom().matches(match)) {
-            System.out.println("FOUND A ROOM");
             found = p.getCurrentRoom();
         }
 
         // Check items in room
-        System.out.println("ROOMS MATCH: " + p.getCurrentRoom().getMatchers());
         check = (Examinable) findMatchable(p.getCurrentRoom().getItems(), match);
         if(check != null) found = check;
 
@@ -147,6 +144,10 @@ public class CommandFactory {
 
         // Check NPCs
         check = (Examinable) findMatchable(p.getCurrentRoom().getNpcs(), match);
+        if(check != null) found = check;
+
+        // Check items in equipment
+        check = (Examinable) findMatchable(p.getEquip().values(), match);
         if(check != null) found = check;
 
         return found;
@@ -172,11 +173,9 @@ public class CommandFactory {
 
     private static Matchable findMatchableForceInstance(Collection<? extends Matchable> matchables,
                                                         String match, Class<?> clazz) {
-        Matchable matchable = matchables.stream().filter(
-                        m -> clazz.isInstance(m) && m.matches(match))
-                .findFirst().orElse(null);
 
-        return matchable;
+        return matchables.stream().filter(m -> clazz.isInstance(m) && m.matches(match))
+                .findFirst().orElse(null);
     }
 
     private static String extractArgument(String cmd, String input) {

@@ -7,19 +7,18 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import entities.EquipItem;
 import entities.GrabbableItem;
 import entities.Item;
 import entities.ItemEffect;
+import utils.EquipParts;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 
 public class ItemDeserializer extends JsonDeserializer<Item> {
     @Override
-    public Item deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
-        ObjectMapper om = new ObjectMapper();
-
+    public Item deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectNode root = jsonParser.getCodec().readTree(jsonParser);
 
         boolean grab = extractBoolean("grab", root);
@@ -27,16 +26,26 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
         Item item;
         if (grab){
             JsonNode mods = root.get("modifiers");
+            if(extractBoolean("oneShot", root)) {
+                item = new GrabbableItem(root.get("name").asText(), root.get("description").asText(),
+                        new ItemEffect(
+                                extractItemEffect("HP", mods),
+                                extractItemEffect("attack", mods),
+                                extractItemEffect("burn", mods),
+                                extractItemEffect("poison", mods),
+                                extractItemEffect("stun", mods)
+                        ));
+            } else {
+                item = new EquipItem(root.get("name").asText(), root.get("description").asText(),
+                        new ItemEffect(
+                                extractItemEffect("HP", mods),
+                                extractItemEffect("attack", mods),
+                                extractItemEffect("burn", mods),
+                                extractItemEffect("poison", mods),
+                                extractItemEffect("stun", mods)
+                        ), EquipParts.AtkHand);
+            }
 
-            item = new GrabbableItem(root.get("name").asText(), root.get("description").asText(),
-                    new ItemEffect(
-                            extractItemEffect("HP", mods),
-                            extractItemEffect("attack", mods),
-                            extractItemEffect("burn", mods),
-                            extractItemEffect("poison", mods),
-                            extractItemEffect("stun", mods),
-                            extractBoolean("oneShot", root)
-                    ));
 
         } else {
             item = new Item(root.get("name").asText(), root.get("description").asText());

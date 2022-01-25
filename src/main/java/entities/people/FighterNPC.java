@@ -2,12 +2,7 @@ package entities.people;
 
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import entities.GrabbableItem;
-import entities.ItemEffect;
 import utils.FighterUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The concrete implementation of a NPC that has the only ability to fight. This means that he can be called as an argument
@@ -49,10 +44,6 @@ public class FighterNPC extends NPC implements Fighter {
      * The number of turns the player is poisoned
      */
     private int poisoned;
-    /**
-     * The equipment of the fighter
-     */
-    private List<ItemEffect> equip = new ArrayList<>();
 
     private FighterNPC() {}
 
@@ -125,10 +116,5 @@ public class FighterNPC extends NPC implements Fighter {
     @Override
     public void setMaxAttack(int newMax) {
         maxAttack = newMax;
-    }
-
-    @Override
-    public List<ItemEffect> getEquip() {
-        return equip;
     }
 }

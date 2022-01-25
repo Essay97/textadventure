@@ -21,7 +21,7 @@ import utils.Directions;
  */
 public class FileMapBuildStrategy implements MapBuildStrategy {
 
-    private String fileName;
+    private final String fileName;
 
     public FileMapBuildStrategy(String fileName) {
         super();
@@ -122,11 +122,11 @@ public class FileMapBuildStrategy implements MapBuildStrategy {
     }
 
     private Item parseItemData(String itemData, String description) {
-        Item item = null;
+        Item item;
         String[] parts = itemData.split("-"); // [0]-> matchers; [1] -> grabbable or not
         String[] matchers = parts[0].split(","); // [0] -> name: [1..] -> all other matchers
         if(parts[1].equals("y")) {
-            item = new GrabbableItem(matchers[0], description, new ItemEffect(0, 0, 0, 0, 0, false));
+            item = new GrabbableItem(matchers[0], description, new ItemEffect(0, 0, 0, 0, 0));
         } else {
             item = new Item(matchers[0], description);
         }

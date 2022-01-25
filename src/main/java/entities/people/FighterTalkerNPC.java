@@ -2,11 +2,7 @@ package entities.people;
 
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import entities.ItemEffect;
 import utils.FighterUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The concrete implementation of a NPC that can both fight and talk. This makes such NPC able to be passed as an argument
@@ -48,11 +44,6 @@ public class FighterTalkerNPC extends NPC implements Fighter, Talker {
      * The number of turns the player is poisoned
      */
     private int poisoned;
-    /**
-     * The equipment of the fighter
-     */
-    private List<ItemEffect> equip = new ArrayList<>();
-
 
     private FighterTalkerNPC() {}
 
@@ -137,8 +128,4 @@ public class FighterTalkerNPC extends NPC implements Fighter, Talker {
         maxAttack = newMax;
     }
 
-    @Override
-    public List<ItemEffect> getEquip() {
-        return equip;
-    }
 }

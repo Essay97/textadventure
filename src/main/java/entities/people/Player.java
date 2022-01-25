@@ -1,9 +1,12 @@
 package entities.people;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import entities.*;
+import utils.EquipParts;
 import utils.FighterUtil;
 
 /**
@@ -29,7 +32,7 @@ public class Player extends Character implements Movable, Fighter {
     /**
      * The items that the player has collected along the game
      */
-    private List<GrabbableItem> inventory = new ArrayList<>();
+    private final List<GrabbableItem> inventory = new ArrayList<>();
     /**
      * The amount of damage that must be taken by the NPC in order to die
      */
@@ -54,10 +57,8 @@ public class Player extends Character implements Movable, Fighter {
      * The number of turns the player is poisoned
      */
     private int poisoned;
-    /**
-     * The equipment of the fighter
-     */
-    private List<ItemEffect> equip = new ArrayList<>();
+
+    private final Map<EquipParts, EquipItem> equip;
 
     public Player(String name, String description) {
         super(name, description);
@@ -65,6 +66,7 @@ public class Player extends Character implements Movable, Fighter {
         getMatchers().add("player");
         maxAttack = 6;
         hp = 90;
+        equip = new HashMap<>();
     }
 
     /**
@@ -220,9 +222,7 @@ public class Player extends Character implements Movable, Fighter {
         maxAttack = newMax;
     }
 
-    @Override
-    public List<ItemEffect> getEquip() {
+    public Map<EquipParts, EquipItem> getEquip() {
         return equip;
     }
-
 }

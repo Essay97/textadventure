@@ -27,7 +27,7 @@ public abstract class Character implements Examinable, Serializable {
     /**
      * Every word in this set can be used in order to target this character as command argument
      */
-    private Set<String> matchers = new HashSet<>();
+    private final Set<String> matchers = new HashSet<>();
 
 
     protected Character(String name, String description) {

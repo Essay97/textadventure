@@ -10,7 +10,6 @@ import entities.GameMap;
  * @see GameMap
  * @see MapBuildStrategy
  * @see DummyMapBuildStrategy
- * @see FileMapBuildStrategy
  * @see YamlMapBuildStrategy
  * @see JsonMapBuildStrategy
  */
@@ -18,7 +17,7 @@ public class GameMapBuilder {
     /**
      * The strategy chooen for the {@link GameMap} instantiation
      */
-    private MapBuildStrategy strategy;
+    private final MapBuildStrategy strategy;
 
     public GameMapBuilder(MapBuildStrategy strategy) {
         super();
