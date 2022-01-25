@@ -52,8 +52,14 @@ public class CommandFactory {
             // INVENTORY
             case "inventory":
                 return new InventoryCommand(player);
-            case "debug":
-                return new DebugCommand(player);
+            case "stats":
+                return new StatsCommand(player);
+            case "equip":
+                return new ShowEquipCommand(player);
+            case "whoami":
+                return new WhoCommand(player);
+            case "where":
+                return new WhereCommand(player);
         }
 
         // More complex commands since a match has to be found

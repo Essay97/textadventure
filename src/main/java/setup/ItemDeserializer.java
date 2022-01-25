@@ -43,7 +43,7 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
                                 extractItemEffect("burn", mods),
                                 extractItemEffect("poison", mods),
                                 extractItemEffect("stun", mods)
-                        ), EquipParts.AtkHand);
+                        ), extractEquipPart(root));
             }
 
 
@@ -75,5 +75,27 @@ public class ItemDeserializer extends JsonDeserializer<Item> {
         } else {
             return false;
         }
+    }
+
+    private EquipParts extractEquipPart(JsonNode node) {
+        String part = node.get("part").asText();
+        switch (part) {
+            case "AtkHand":
+                return EquipParts.AtkHand;
+            case "DefHand":
+                return EquipParts.DefHand;
+            case "Foot":
+                return EquipParts.Foot;
+            case "Head":
+                return EquipParts.Head;
+            case "Neck":
+                return EquipParts.Neck;
+            case "Wrist":
+                return EquipParts.Wrist;
+            case "Body":
+                return EquipParts.Body;
+        }
+
+        return null;
     }
 }
