@@ -60,6 +60,8 @@ public class CommandFactory {
                 return new WhoCommand(player);
             case "where":
                 return new WhereCommand(player);
+            case "number":
+                return new NumberCommand(state);
         }
 
         // More complex commands since a match has to be found

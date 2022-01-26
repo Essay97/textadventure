@@ -19,14 +19,4 @@ public class InventoryCommand implements Command {
         Output.inventory(player);
     }
 
-    @Override
-    public void unexecute() {
-        throw new UnsupportedOperationException(getClass().getSimpleName() + "cannote be unexecuted");
-    }
-
-    @Override
-    public boolean canUnexecute() {
-        return false;
-    }
-
 }

@@ -27,15 +27,4 @@ public class ExamineCommand extends BaseCommand {
         }
 
     }
-
-    @Override
-    public void undoAction() {
-        throw new UnsupportedOperationException(getClass().getSimpleName() + " cannot be unexecuted");
-    }
-
-    @Override
-    public boolean canUnexecute() {
-        return false;
-    }
-
 }

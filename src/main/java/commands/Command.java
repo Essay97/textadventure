@@ -12,10 +12,15 @@ public interface Command {
     /**
      * Rolls back the effect of the command
      */
-    void unexecute();
+    default void unexecute() {
+        throw new UnsupportedOperationException(getClass().getSimpleName() + "cannote be unexecuted");
+    };
 
     /**
      * @return <code>true</code> if this command is intended to be unexecuted (i.e. implement {@link #unexecute()}
      */
-    boolean canUnexecute();
+    default boolean canUnexecute() {
+        return false;
+    };
+
 }

@@ -22,15 +22,4 @@ public class DeleteSaveCommand implements Command {
             System.out.println("I don't know what went wrong... maybe you can retry?");
         }
     }
-
-    @Override
-    public void unexecute() {
-        throw new UnsupportedOperationException(getClass().getSimpleName() + "cannot be unexecuted");
-    }
-
-    @Override
-    public boolean canUnexecute() {
-        return false;
-    }
-
 }

@@ -41,8 +41,10 @@ public abstract class BaseCommand implements Command {
     public abstract void doAction();
 
     /**
-     * The actual rollback of the concrete command
+     * The actual rollback of the concrete command. The default is UnsupportedOperandException
      */
-    public abstract void undoAction();
+    public void undoAction() {
+        throw new UnsupportedOperationException(getClass().getSimpleName() + " cannot be unexecuted");
+    }
 
 }

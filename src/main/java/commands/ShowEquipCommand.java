@@ -24,14 +24,4 @@ public class ShowEquipCommand implements Command {
             System.out.println(message);
         }
     }
-
-    @Override
-    public void unexecute() {
-        throw new UnsupportedOperationException(getClass().getSimpleName() + "cannote be unexecuted");
-    }
-
-    @Override
-    public boolean canUnexecute() {
-        return false;
-    }
 }

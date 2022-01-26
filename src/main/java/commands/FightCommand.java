@@ -23,11 +23,6 @@ public class FightCommand extends BaseCommand {
     }
 
     @Override
-    public boolean canUnexecute() {
-        return false;
-    }
-
-    @Override
     public void doAction() {
         if(f1 == null || f2 == null) {
             System.out.println("No one with that name wants to fight you.");
@@ -53,11 +48,6 @@ public class FightCommand extends BaseCommand {
                 System.out.println("It's a tie.");
             }
         }
-    }
-
-    @Override
-    public void undoAction() {
-        throw new UnsupportedOperationException(getClass().getSimpleName()+" cannot be unexecuted");
     }
 
     private void chooseAction(Fighter fighter, Fighter target) {

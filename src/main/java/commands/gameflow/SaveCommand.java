@@ -47,15 +47,4 @@ public class SaveCommand implements Command {
             System.out.println("Something went wrong while I was saving... Please, retry.");
         }
     }
-
-    @Override
-    public void unexecute() {
-        throw new UnsupportedOperationException(getClass().getSimpleName() + " cannot be unexecuted");
-    }
-
-    @Override
-    public boolean canUnexecute() {
-        return false;
-    }
-
 }
