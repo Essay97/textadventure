@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import entities.*;
+import entities.items.EquipItem;
+import entities.items.GrabbableItem;
 import utils.EquipParts;
 import utils.FighterUtil;
 

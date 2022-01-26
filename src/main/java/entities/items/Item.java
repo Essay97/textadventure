@@ -1,11 +1,12 @@
-package entities;
+package entities.items;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import setup.ItemDeserializer;
+import entities.Examinable;
+import setup.serialize.ItemDeserializer;
 import utils.MatchableUtil;
 
 /**

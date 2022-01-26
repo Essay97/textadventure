@@ -1,7 +1,7 @@
 package entities.people;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import setup.NPCDeserializer;
+import setup.serialize.NPCDeserializer;
 
 /**
  * Basic implementation of a NPC. This class just gives minimal functionality such as name and description, but leaves

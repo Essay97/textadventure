@@ -1,5 +1,6 @@
-package commands;
+package commands.actions;
 
+import commands.BaseCommand;
 import entities.GameState;
 import entities.people.Talker;
 

@@ -1,4 +1,4 @@
-package setup;
+package setup.strategies;
 
 import entities.GameMap;
 

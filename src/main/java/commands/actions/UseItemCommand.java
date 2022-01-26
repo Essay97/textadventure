@@ -1,6 +1,7 @@
-package commands;
+package commands.actions;
 
-import entities.GrabbableItem;
+import commands.Command;
+import entities.items.GrabbableItem;
 import entities.people.Player;
 
 public class UseItemCommand implements Command {

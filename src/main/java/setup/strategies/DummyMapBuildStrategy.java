@@ -1,6 +1,9 @@
-package setup;
+package setup.strategies;
 
 import entities.*;
+import entities.items.GrabbableItem;
+import entities.items.Item;
+import entities.items.ItemEffect;
 import entities.people.FighterNPC;
 import entities.people.TalkerNPC;
 import utils.Input;

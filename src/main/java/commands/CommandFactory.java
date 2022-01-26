@@ -2,6 +2,8 @@ package commands;
 
 import java.util.Collection;
 
+import commands.actions.*;
+import commands.data.*;
 import commands.gameflow.DeleteSaveCommand;
 import commands.gameflow.EndGameCommand;
 import commands.gameflow.SaveCommand;
@@ -11,7 +13,7 @@ import commands.movement.MoveSCommand;
 import commands.movement.MoveWCommand;
 import entities.Examinable;
 import entities.GameState;
-import entities.GrabbableItem;
+import entities.items.GrabbableItem;
 import entities.Matchable;
 import entities.people.Fighter;
 import entities.people.Player;

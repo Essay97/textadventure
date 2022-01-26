@@ -1,4 +1,4 @@
-package entities;
+package entities.items;
 
 import entities.people.Player;
 import utils.EquipParts;

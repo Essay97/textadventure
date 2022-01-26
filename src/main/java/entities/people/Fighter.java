@@ -1,17 +1,18 @@
 package entities.people;
 
+import commands.actions.FightCommand;
 import entities.Matchable;
 import utils.Output;
 
 /**
  * The interface gives the ability to use the <code>fight</code> command.
- * Instances of a class that implements this interface can be passed to {@link commands.FightCommand}. It also adds
+ * Instances of a class that implements this interface can be passed to {@link FightCommand}. It also adds
  * the ability to be targeted as a command argument (not only for the <code>fight</code> command but also for all the other
  * ones such as <code>examine</code>)
  *
  * @see FighterNPC
  * @see FighterTalkerNPC
- * @see commands.FightCommand
+ * @see FightCommand
  */
 public interface Fighter extends Matchable {
     /**

@@ -1,7 +1,7 @@
 package entities.people;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import setup.DialogueTemplateDeserializer;
+import setup.serialize.DialogueTemplateDeserializer;
 
 import java.io.Serializable;
 

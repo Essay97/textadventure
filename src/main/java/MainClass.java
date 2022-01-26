@@ -5,7 +5,7 @@ import entities.GameMap;
 import entities.GameState;
 import entities.people.Player;
 import setup.GameMapBuilder;
-import setup.YamlMapBuildStrategy;
+import setup.strategies.YamlMapBuildStrategy;
 import utils.Input;
 import utils.Output;
 

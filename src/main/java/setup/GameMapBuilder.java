@@ -1,6 +1,10 @@
 package setup;
 
 import entities.GameMap;
+import setup.strategies.DummyMapBuildStrategy;
+import setup.strategies.JsonMapBuildStrategy;
+import setup.strategies.MapBuildStrategy;
+import setup.strategies.YamlMapBuildStrategy;
 
 /**
  * This class is responsible for building the map for the game. This can achieved via multiple strategies. Pass the desired

@@ -1,4 +1,4 @@
-package setup;
+package setup.strategies;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 import entities.*;
+import entities.items.GrabbableItem;
+import entities.items.Item;
+import entities.items.ItemEffect;
 import utils.Directions;
 
 /**

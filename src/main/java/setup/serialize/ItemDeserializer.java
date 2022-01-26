@@ -1,16 +1,14 @@
-package setup;
+package setup.serialize;
 
-import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import entities.EquipItem;
-import entities.GrabbableItem;
-import entities.Item;
-import entities.ItemEffect;
+import entities.items.EquipItem;
+import entities.items.GrabbableItem;
+import entities.items.Item;
+import entities.items.ItemEffect;
 import utils.EquipParts;
 
 import java.io.IOException;

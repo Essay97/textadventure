@@ -2,7 +2,7 @@ package utils;
 
 import java.util.concurrent.TimeUnit;
 
-import entities.Item;
+import entities.items.Item;
 import entities.people.Player;
 
 /**

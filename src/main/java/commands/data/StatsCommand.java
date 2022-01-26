@@ -1,5 +1,6 @@
-package commands;
+package commands.data;
 
+import commands.Command;
 import entities.people.Player;
 
 public class StatsCommand implements Command {

@@ -1,11 +1,13 @@
-package commands;
+package commands.actions;
 
+import commands.BaseCommand;
 import entities.GameState;
-import entities.GrabbableItem;
+import entities.items.GrabbableItem;
+import entities.items.Item;
 import entities.people.Player;
 
 /**
- * Drops an {@link entities.Item} in the inventory. It is triggered by the word <code>drop</code>
+ * Drops an {@link Item} in the inventory. It is triggered by the word <code>drop</code>
  */
 public class DropCommand extends BaseCommand {
 

@@ -1,5 +1,6 @@
-package commands;
+package commands.data;
 
+import commands.Command;
 import entities.people.Player;
 import utils.Output;
 

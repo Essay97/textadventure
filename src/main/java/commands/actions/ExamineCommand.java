@@ -1,5 +1,6 @@
-package commands;
+package commands.actions;
 
+import commands.BaseCommand;
 import entities.Examinable;
 import entities.GameState;
 
